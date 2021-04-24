@@ -149,7 +149,7 @@ class graphLine {
  * @param {number} ymax
  * @param {number} yincrement 
  */
-function drawGraph(lines, context, xincrement, ymax, yincrement) {
+function drawGraph(lines, context, xincrement, ymax, yincrement, xlabel = "X", ylabel = "Y") {
     if (lines instanceof graphLine) {
         lines = [lines]
     }
@@ -159,8 +159,8 @@ function drawGraph(lines, context, xincrement, ymax, yincrement) {
 
     const border = 10
 
-    const xaxisdist = 15
-    const yaxisdist = 15
+    const xaxisdist = 20
+    const yaxisdist = 30
 
     let tickcap = 0
     for (let line of lines) {
@@ -189,18 +189,27 @@ function drawGraph(lines, context, xincrement, ymax, yincrement) {
         context.lineTo(yaxisdist + border + 3, dashY)
         context.fillText(ymax - i * yincrement, yaxisdist + border - 6, dashY + 4)
     }
+    context.font = "20px Garamond"
+    context.textAlign = "center"
+    context.save()
+    context.rotate(Math.PI/2)
+    context.fillText(ylabel, height/2, -5)
+    context.restore()
+    context.font = "16px Garamond"
 
     // X-axis
     context.moveTo(yaxisdist + border, height - xaxisdist - border)
     context.lineTo(width - border, height - xaxisdist - border)
     // Draw dashes every 12 months
-    context.textAlign = "center"
+    
     for (let i = 0; i < tickcap; i++) {
         let dashX = (width - border) * i / tickcap + border + yaxisdist
         context.moveTo(dashX, height - xaxisdist - border - 3)
         context.lineTo(dashX, height - xaxisdist - border + 3)
         context.fillText(i * xincrement, dashX, height - xaxisdist - border + 14)
     }
+    context.font = "20px Garamond"
+    context.fillText(xlabel, width/2, height-5)
     context.stroke()
 
     /**
@@ -326,7 +335,7 @@ function update() {
     let tradition = traditionList(tradStart, tradGain, tradDecayRed)
     let vartrad = traditionList(tradStart, tradGain + tradVarGain, tradDecayRed)
 
-    drawGraph([new graphLine(tradition, "grey"), new graphLine(vartrad)], tctx, 10, 100, 10)
+    drawGraph([new graphLine(tradition, "grey"), new graphLine(vartrad)], tctx, 10, 100, 10, "Years", "Military Tradition")
 
     let timemap = tradition.map(pipProb)
     let vartimemap = vartrad.map(pipProb)
@@ -337,7 +346,7 @@ function update() {
     }
     pipLines.push(new graphLine(tradition.map(minPips), "white", 1))
     pipLines.push(new graphLine(tradition.map(maxPips), "white", 1))
-    drawGraph(pipLines, pctx, 10, 24, 1)
+    drawGraph(pipLines, pctx, 10, 24, 1, "Years", "Leader Pips")
 }
 
 
