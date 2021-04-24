@@ -1,6 +1,6 @@
 body {
     background-color:midnightblue;
-    
+    margin: 0;
 }
 
 
@@ -10,7 +10,7 @@ div.graphcontainer {
     position: absolute;
     left: 0;
     right: 72.305389vh;
-    margin: 8px;
+    margin: 1vh;
 }
 div.graphbackground {
     position: relative;
@@ -54,9 +54,10 @@ canvas.graphcanvas {
 div.sliders {
     position: fixed;
     right: 0;
-    height: 100vh;
-    width: 72.305389vh;
-    padding: 8px;
+    height: calc(100vh - 1vh);
+    width: calc(0.72305389 * 99vh);
+    margin: 1vh;
+    margin-bottom: 0;
 
     background-image: url("./resources/option_panel_bg.png");
     background-repeat: no-repeat;

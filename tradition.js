@@ -63,6 +63,7 @@ function maxPips(tradition) {
 }
 
 /**
+ * Returns a modified version of the list for a given probability of +1.
  * @param {number} prob 
  * @param {number[]} items 
  * @returns {number[]}
@@ -78,22 +79,21 @@ function probIncrease(prob, items) {
     }
     return list
 }
+
 /**
+ * Calculates the probability distribution for leader pips given a tradition level.
  * @param {number} tradition 
- * @returns {number[]}
+ * @returns {number[]} An array of probabilities of rolling each pips. Sum of 1.
  */
 function pipProb(tradition) {
-    // Initial probability
-    let p1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-    p1[1 + Math.floor(tradition / 20)] = 1
-    // Roll for 6
-    let r2 = probIncrease(5 / 6, p1)
-    let r3 = probIncrease(4 / 6, r2)
-    let r4 = probIncrease(3 / 6, r3)
-    let r5 = probIncrease(2 / 6, r4)
-    let r6 = probIncrease(1 / 6, r5)
+    // Initial probability roll for 6
+    let p6 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    for (let i = 1 + Math.floor(tradition / 20); i < 1 + Math.floor(tradition / 20) + 6; i++) {
+        p6[i] = 1/6;
+    }
+
     // Tradition rolls
-    let t7 = probIncrease(tradition / 100, r6)
+    let t7 = probIncrease(tradition / 100, p6)
     let t8 = probIncrease(Math.max(0, tradition - 20) / 100, t7)
     let t9 = probIncrease(Math.max(0, tradition - 40) / 100, t8)
     let t10 = probIncrease(Math.max(0, tradition - 60) / 100, t9)
@@ -106,7 +106,7 @@ function pipProb(tradition) {
  * Gets the first pip count at which a given probability of rolling it is met.
  * @param {number} prob
  * @param {number[]} pipProbs An array with the probability of each possible pip count (not cumulative; sum of all items should be 1)
- * @returns {number}
+ * @returns {number} The number of pips.
  */
 function leastProb(prob, pipProbs) {
     let probSum = 0
@@ -120,9 +120,10 @@ function leastProb(prob, pipProbs) {
 }
 
 /**
+ * Gets the first pip count at which a given probability of rolling is met over time, including bonus pips.
  * @param {number} prob
- * @param {number[][]} pipProbs An array for each month containing arrays of the probability of each possible pip count (not cumulative)
- * @return {number[]}
+ * @param {number[][]} pipProbs An array for each year containing arrays of the probability of each possible pip count (not cumulative)
+ * @return {number[]} An array containing the pip count for each year for the probability.
  */
 function eachProbs(prob, pipProbs) {
     return pipProbs.map(p => addBonusPips(leastProb(prob, p)))
