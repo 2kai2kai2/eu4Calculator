@@ -7,8 +7,8 @@
         {
             "type": "pwa-chrome",
             "request": "launch",
-            "name": "Open tradition.html",
-            "file": "c:\\Users\\2kai2\\OneDrive\\scripts\\EU4\\eu4TraditionWeb\\tradition.html"
+            "name": "Run index",
+            "file": "index.html"
         }
     ]
 }

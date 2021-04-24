@@ -126,3 +126,11 @@ h3.sliderlabel {
     background: url("./resources/sliderhandle.png");
     background-repeat: no-repeat;
 }
+
+/** Patreon Button */
+iframe.patreon-widget {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 9;
+}
