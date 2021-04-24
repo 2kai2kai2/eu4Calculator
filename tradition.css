@@ -33,12 +33,12 @@ h1.graphtitle {
     height: 4%;
     width: 100%;
     margin: 0;
-    padding-top: 2%;
+    padding-top: 1.5%;
     padding-bottom: 3%;
 
     color: white;
     font-family: "Cormorant Garamond", serif;
-    font-size: 200%;
+    font-size: calc(calc(100vw - 72.305389vh) * 0.03);
     text-align: center;
 }
 canvas.graphcanvas {
@@ -73,21 +73,21 @@ div.sliderframe {
 }
 div.sliderrow {
     position: relative;
-    margin-left: 16px;
-    margin-right: 16px;
+    margin-left: 1%;
+    margin-right: 1%;
     height: 7.142857142%; /* 1/14 */
 }
 h3.sliderlabel {
     position: absolute;
 
-    margin: 5px;
+    margin: 1%;
     left: 4%;
     top: 50%;
     transform: translateY(-70%);
 
     color: white;
     font-family: "Cormorant Garamond", serif;
-    font-size: 150%;
+    font-size: 2.5vh;
     white-space:nowrap;
 }
 
@@ -97,7 +97,8 @@ h3.sliderlabel {
     height: 20%;
     right: 4%;
     top: 50%;
-    transform: translateY(-50%);
+    margin: 1%;
+    transform: translateY(-100%);
     -webkit-appearance: none;
     outline: none;
     background-image: url("./resources/sliderbackground.png");
@@ -106,26 +107,29 @@ h3.sliderlabel {
 }
 .slider::-webkit-slider-thumb {
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 2vh;
+    height: 2vh;
     border: 0;
     background: url("./resources/sliderhandle.png");
     background-repeat: no-repeat;
+    background-size: 2vh 2vh;
 }
 .slider::-moz-range-thumb {
-    width: 16px;
-    height: 16px;
+    width: 2vh;
+    height: 2vh;
     border: 0;
     background: url("./resources/sliderhandle.png");
     background-repeat: no-repeat;
+    background-size: 2vh 2vh;
 }
 .slider::-ms-thumb {
     appearance: none;
-    width: 16px;
-    height: 16px;
+    width: 2vh;
+    height: 2vh;
     border: 0;
     background: url("./resources/sliderhandle.png");
     background-repeat: no-repeat;
+    background-size: 2vh 2vh;
 }
 
 /** Patreon Button */
