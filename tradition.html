@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>EU4 Tradition Calculator</title>
+        <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap" rel="stylesheet">
+        <link href="tradition.css" rel="stylesheet">
+    </head>
+    <body>
+        <div class="graphcontainer">
+            <div class="graphbackground">
+                <div class="graph" id="traditionGraphFrame">
+                    <h1 class="graphtitle">Tradition</h1>
+                    <canvas class="graphcanvas" id="traditionGraph" width="600" height="400"></canvas>
+                </div>
+            </div>
+            <div class="graphbackground">
+                <div class="graph" id="pipGraphFrame">
+                    <h1 class="graphtitle">Leader Pips</h1>
+                    <canvas class="graphcanvas" id="pipGraph" width="600" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="sliders">
+            <div class="sliderframe">
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="startlabel">Starting Tradition</h3>
+                    <input type="range" min="0" max="100" step=0.1 value="20" class="slider" id="startslider">    
+                </div>
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="gainlabel">Tradition Gain</h3>
+                    <input type="range" min="0" max="5" step=0.05 value="0" class="slider" id="gainslider">
+                </div>
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="decayreductionlabel">Tradition Decay Reduction</h3>
+                    <input type="range" min="0" max="0.05" step=0.005 value="0"  class="slider"id="decayreductionslider">
+                </div>
+                <div class="sliderrow"></div>
+                <!-- Bonus pips -->
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="firepiplabel">Leader Fire</h3>
+                    <input type="range" min=0 max=6 step=1 value=0  class="slider"id="firepipslider">
+                </div>
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="shockpiplabel">Leader Shock</h3>
+                    <input type="range" min=0 max=6 step=1 value=0  class="slider"id="shockpipslider">
+                </div>
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="maneuverpiplabel">Leader Maneuver</h3>
+                    <input type="range" min=0 max=6 step=1 value=0  class="slider"id="maneuverpipslider">
+                </div>
+                <div class="sliderrow">
+                    <h3 class="sliderlabel" id="siegepiplabel">Leader Siege</h3>
+                    <input type="range" min=0 max=6 step=1 value=0  class="slider"id="siegepipslider">
+                </div>
+            </div>
+        </div>
+        <script src="tradition.js"></script>
+    </body>
+</html>

@@ -1,0 +1,128 @@
+body {
+    background-color:midnightblue;
+    
+}
+
+
+/* Graphs */
+
+div.graphcontainer {
+    position: absolute;
+    left: 0;
+    right: 72.305389vh;
+    margin: 8px;
+}
+div.graphbackground {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 76.1%;
+    
+    background-image: url("./resources/graphbg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+div.graph {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+h1.graphtitle {
+    height: 4%;
+    width: 100%;
+    margin: 0;
+    padding-top: 2%;
+    padding-bottom: 3%;
+
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 200%;
+    text-align: center;
+}
+canvas.graphcanvas {
+    position: absolute;
+    bottom: 12%;
+    top: 10%;
+    left: 4%;
+    right: 4%;
+}
+
+/* Sliders */
+
+div.sliders {
+    position: fixed;
+    right: 0;
+    height: 100vh;
+    width: 72.305389vh;
+    padding: 8px;
+
+    background-image: url("./resources/option_panel_bg.png");
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+}
+div.sliderframe {
+    /* Can contain 14 rows */
+    position: absolute;
+    top: 17.664670658%;
+    bottom: 7.185628742%;
+    left: 0;
+    right: 0;
+}
+div.sliderrow {
+    position: relative;
+    margin-left: 16px;
+    margin-right: 16px;
+    height: 7.142857142%; /* 1/14 */
+}
+h3.sliderlabel {
+    position: absolute;
+
+    margin: 5px;
+    left: 4%;
+    top: 50%;
+    transform: translateY(-70%);
+
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 150%;
+    white-space:nowrap;
+}
+
+.slider {
+    position: absolute;
+    width: 40%;
+    height: 20%;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-appearance: none;
+    outline: none;
+    background-image: url("./resources/sliderbackground.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background: url("./resources/sliderhandle.png");
+    background-repeat: no-repeat;
+}
+.slider::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background: url("./resources/sliderhandle.png");
+    background-repeat: no-repeat;
+}
+.slider::-ms-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 0;
+    background: url("./resources/sliderhandle.png");
+    background-repeat: no-repeat;
+}
