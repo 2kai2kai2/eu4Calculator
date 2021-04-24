@@ -11,10 +11,53 @@ body {
 
 div.graphcontainer {
     position: absolute;
+    top: 0;
+    bottom: 0;
     left: 0;
     right: calc(100vh * 483 / 668);
     margin: 1vh;
+
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
 }
+::-webkit-scrollbar {
+    background-color: transparent;
+}
+::-webkit-scrollbar-track {
+    -webkit-appearance: none;
+    outline: none;
+    background-color: transparent;
+
+    background-image: url("./resources/scroll_track.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+::-webkit-scrollbar-thumb {
+    -webkit-appearance: none;
+    outline: none;
+    background-color: transparent;
+    border-radius: 50%;
+
+    background-image: url("./resources/scroll_handle_top.png"), url("./resources/scroll_handle.png"), url("./resources/scroll_handle_bottom.png");
+    background-position: top, center, bottom;
+    background-repeat: no-repeat, no-repeat, no-repeat;
+    background-size: 100% auto, 100% 100%, 100% auto;
+}
+::-webkit-scrollbar-button {
+    -webkit-appearance: none;
+    outline: none;
+    
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+::-webkit-scrollbar-button:increment {
+    background-image: url("./resources/scroll_down.png");
+}
+::-webkit-scrollbar-button:decrement {
+    background-image: url("./resources/scroll_up.png");
+}
+
+
 div.graphbackground {
     position: relative;
     width: 100%;
@@ -23,8 +66,12 @@ div.graphbackground {
     
     background-image: url("./resources/graphbg.png");
     background-repeat: no-repeat;
+    background-position: right;
     background-size: 100% 100%;
+
+    scroll-snap-align: center;
 }
+
 div.graph {
     position: absolute;
     top: 0;
