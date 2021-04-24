@@ -2,6 +2,9 @@ body {
     background-color:midnightblue;
     margin: 0;
 }
+:root {
+    --scrollbox-aspect-ratio: calc(483 / 668)
+}
 
 
 /* Graphs */
@@ -9,7 +12,7 @@ body {
 div.graphcontainer {
     position: absolute;
     left: 0;
-    right: 72.305389vh;
+    right: calc(100vh * 483 / 668);
     margin: 1vh;
 }
 div.graphbackground {
@@ -33,12 +36,12 @@ h1.graphtitle {
     height: 4%;
     width: 100%;
     margin: 0;
-    padding-top: 1.5%;
+    padding-top: 1.75%;
     padding-bottom: 3%;
 
     color: white;
     font-family: "Cormorant Garamond", serif;
-    font-size: calc(calc(100vw - 72.305389vh) * 0.03);
+    font-size: calc(calc(100vw - calc(100vh * var(--scrollbox-aspect-ratio))) * 0.03);
     text-align: center;
 }
 canvas.graphcanvas {
@@ -55,13 +58,29 @@ div.sliders {
     position: fixed;
     right: 0;
     height: calc(100vh - 1vh);
-    width: calc(0.72305389 * 99vh);
+    width: calc(var(--scrollbox-aspect-ratio) * 99vh);
     margin: 1vh;
     margin-bottom: 0;
 
     background-image: url("./resources/option_panel_bg.png");
     background-repeat: no-repeat;
     background-size: auto 100%;
+}
+h1.sliderboxtitle {
+    position: absolute;
+    top: 0;
+    bottom: calc(100% * calc(668 - 64) / 668);
+    left: 0;
+    right: 0;
+    margin-top: calc(100% * 36.5 / 668);
+    margin-bottom: calc(100% * 15 / 668);
+    margin-left: calc(100% * 56 / 483);
+    margin-right: calc(100% * 56 / 483);
+
+    color: white;
+    font-family: "Cormorant Garamond", serif;
+    font-size: calc(calc(72.305389vh) * 0.04);
+    text-align: center;
 }
 div.sliderframe {
     /* Can contain 14 rows */
@@ -75,7 +94,7 @@ div.sliderrow {
     position: relative;
     margin-left: 1%;
     margin-right: 1%;
-    height: 7.142857142%; /* 1/14 */
+    height: calc(100% / 14); /* 1/14 */
 }
 h3.sliderlabel {
     position: absolute;
